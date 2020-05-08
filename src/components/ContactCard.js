@@ -17,6 +17,8 @@ const ContactCard = ({ contact }) => (
       </Card>
     }
     wide='very'
+    position='right center'
+    inverted
   >
     <Popup.Header>Profile</Popup.Header>
     <Popup.Content>
