@@ -5,7 +5,7 @@ import ContactCard from './ContactCard'
 
 const ContactCardList = ({contacts}) => (
     <Card.Group>
-        {contacts.map( contact => (<ContactCard contact={contact} />))}
+        {contacts.map( contact => (<ContactCard  key={contact.email} contact={contact} />))}
     </Card.Group>
     
 )
