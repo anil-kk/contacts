@@ -33,29 +33,24 @@ const ContactListItem = ({ contact }) => {
               <List horizontal>
                 {contact.linkedIn ? (
                   <List.Item>
-                    <List.Icon name='linkedin' />
                     <List.Content>
-                      <a
-                        href={`http://www.linkedin.com${contact.linkedIn}`}
-                      > </a>
+                      <a target="_blank" rel="noopener noreferrer" href={`http://www.linkedin.com${contact.linkedIn}`} ><Icon name='linkedin' /></a>
                     </List.Content>
                   </List.Item>
                 ) : null}
 
                 {contact.gitHub ? (
                   <List.Item>
-                    <List.Icon name='github' />
                     <List.Content>
-                      <a href={`http://www.github.com/${contact.gitHub}`}> </a>
+                      <a target="_blank" rel="noopener noreferrer" href={`http://www.github.com/${contact.gitHub}`}><Icon name='github' /></a>
                     </List.Content>
                   </List.Item>
                 ) : null}
 
                 {contact.twitter ? (
                   <List.Item>
-                    <List.Icon name='twitter' />
                     <List.Content>
-                      <a href={`http://www.twitter.com/${contact.twitter}`}> </a>
+                      <a target="_blank" rel="noopener noreferrer" href={`http://www.twitter.com/${contact.twitter}`}><Icon name='twitter' /></a>
                     </List.Content>
                   </List.Item>
                 ) : null}
