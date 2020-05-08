@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Header, Grid, Pagination } from 'semantic-ui-react';
+import { Container, Header, Grid } from 'semantic-ui-react';
+
+import Toolbar from './components/Toolbar';
 
 import { loadContactsAsync } from './actions';
 import ContactCardList from './components/ContactCardList';
+import ContactList from './components/ContactList';
 
 class App extends React.Component {
-  state = { currentPage: 1, itemsPerPage: 6 };
+  state = { currentPage: 1, itemsPerPage: 6, activeItem: 'grid' };
 
   componentDidMount() {
     this.props.loadContactsAsync();
@@ -14,10 +17,19 @@ class App extends React.Component {
 
   handleInputChange = (e, { value }) => this.setState({ currentPage: value });
 
-  handlePaginationChange = (e, { activePage }) => this.setState({ currentPage: activePage });
+  handlePaginationChange = (e, { activePage }) =>
+    this.setState({ currentPage: activePage });
+
+  handleMenuItemClick = (e, { name }) => {
+    if (name === 'grid') {
+      this.setState({ itemsPerPage: 6, activeItem: name });
+      return;
+    }
+    this.setState({ itemsPerPage: 5, activeItem: name });
+  };
 
   render() {
-    const { currentPage, itemsPerPage } = this.state;
+    const { currentPage, itemsPerPage, activeItem } = this.state;
     const { contacts } = this.props;
     const totalItems = contacts.length;
     const totalPages = Math.floor(totalItems / itemsPerPage);
@@ -37,24 +49,28 @@ class App extends React.Component {
             <Grid.Column>
               <Grid>
                 <Grid.Row>
-                  <Header size='medium'>A fellowship of 1337</Header>
+                  <Container>
+                    <Header size='medium'>A fellowship of 1337</Header>
+                  </Container>
                 </Grid.Row>
                 <Grid.Row>
-                  <Pagination
-                    activePage={currentPage}
-                    onPageChange={this.handlePaginationChange}
+                  <Toolbar
+                    activeItem={activeItem}
                     totalPages={totalPages}
+                    currentPage={currentPage}
+                    handleInputChange={this.handleInputChange}
+                    handlePaginationChange={this.handlePaginationChange}
+                    handleMenuItemClick={this.handleMenuItemClick}
                   />
                 </Grid.Row>
                 <Grid.Row>
-                  <ContactCardList contacts={contactsInCurrentPage} />
-                </Grid.Row>
-                <Grid.Row>
-                  <Pagination
-                    activePage={currentPage}
-                    onPageChange={this.handlePaginationChange}
-                    totalPages={totalPages}
-                  />
+                  <Container>
+                    {activeItem === 'grid' ? (
+                      <ContactCardList contacts={contactsInCurrentPage} />
+                    ) : (
+                      <ContactList contacts={contactsInCurrentPage} />
+                    )}
+                  </Container>
                 </Grid.Row>
               </Grid>
             </Grid.Column>
