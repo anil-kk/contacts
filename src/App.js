@@ -25,7 +25,7 @@ class App extends React.Component {
       this.setState({ itemsPerPage: 6, activeItem: name });
       return;
     }
-    this.setState({ itemsPerPage: 5, activeItem: name });
+    this.setState({ itemsPerPage: 4, activeItem: name });
   };
 
   render() {

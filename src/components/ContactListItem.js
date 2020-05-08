@@ -37,7 +37,7 @@ const ContactListItem = ({ contact }) => {
                     <List.Content>
                       <a
                         href={`http://www.linkedin.com${contact.linkedIn}`}
-                      ></a>
+                      > </a>
                     </List.Content>
                   </List.Item>
                 ) : null}
@@ -46,7 +46,7 @@ const ContactListItem = ({ contact }) => {
                   <List.Item>
                     <List.Icon name='github' />
                     <List.Content>
-                      <a href={`http://www.github.com/${contact.gitHub}`}></a>
+                      <a href={`http://www.github.com/${contact.gitHub}`}> </a>
                     </List.Content>
                   </List.Item>
                 ) : null}
@@ -55,7 +55,7 @@ const ContactListItem = ({ contact }) => {
                   <List.Item>
                     <List.Icon name='twitter' />
                     <List.Content>
-                      <a href={`http://www.twitter.com/${contact.twitter}`}></a>
+                      <a href={`http://www.twitter.com/${contact.twitter}`}> </a>
                     </List.Content>
                   </List.Item>
                 ) : null}

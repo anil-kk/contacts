@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import { LOAD_CONTACTS } from './types';
 import { config } from '../config';
 
@@ -25,11 +27,10 @@ const compare = (firstContact, secondContact) => {
 
 export const loadContactsAsync = () => {
   return (dispatch, getState) => {
-    return fetch(config.API_URL)
-      .then((res) => res.json())
+    return axios.get(config.API_URL)
       .then(
-        (contacts) => {
-          const sortedContacts = contacts.sort(compare);
+        (res) => {
+          const sortedContacts = res.data.sort(compare);
           dispatch(loadContacts(sortedContacts));
         },
         (error) => {
