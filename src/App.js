@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Container, Header, Grid } from 'semantic-ui-react';
 
 import { loadContactsAsync } from './actions';
+import ContactCardList from './components/ContactCardList';
 
 class App extends React.Component {
   componentDidMount() {
@@ -9,7 +11,21 @@ class App extends React.Component {
   }
 
   render() {
-    return <div className='App'> {JSON.stringify(this.props.contacts)}</div>;
+    return (
+      <Container>
+        <Grid>
+          <Grid.Row></Grid.Row>
+
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <Header size='medium'>A fellowship of 1337</Header>
+
+              <ContactCardList contacts={this.props.contacts}/>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    );
   }
 }
 
