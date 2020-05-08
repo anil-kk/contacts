@@ -8,7 +8,7 @@ import { loadContactsAsync } from './actions';
 import ContactCardList from './components/ContactCardList';
 import ContactList from './components/ContactList';
 
-class App extends React.Component {
+export class App extends React.Component {
   state = { currentPage: 1, itemsPerPage: 6, activeItem: 'grid' };
 
   componentDidMount() {
