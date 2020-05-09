@@ -1,12 +1,15 @@
+dist: trusty
 language: node_js
 node_js:
   - "stable"
 cache:
+  yarn: true
   directories:
     - node_modules
 script:
-  - npm test
-  - npm run build
+  - yarn install --frozen-lockfile
+  - yarn test
+  - yarn build
 deploy:
   provider: surge
   skip_cleanup: true
