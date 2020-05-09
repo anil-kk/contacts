@@ -1,7 +1,7 @@
 
 ### Travis CI Build Status. [![Build Status](https://travis-ci.com/anil-kk/contacts.svg?branch=master)](https://travis-ci.com/anil-kk/contacts) 
 
-### CI Automatic Deploy [Demo](1337.surge.sh).
+### CI Automatic Deploy [DEMO](http://1337.surge.sh/)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
