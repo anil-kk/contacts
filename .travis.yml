@@ -7,7 +7,7 @@ cache:
   directories:
     - node_modules
 script:
-  - yarn install --frozen-lockfile
+  - yarn install
   - yarn test
   - yarn build
 deploy:
