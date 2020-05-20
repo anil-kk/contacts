@@ -32,7 +32,7 @@ export class App extends React.Component {
     const { currentPage, itemsPerPage, activeItem } = this.state;
     const { contacts } = this.props;
     const totalItems = contacts.length;
-    const totalPages = Math.floor(totalItems / itemsPerPage);
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const contactsInCurrentPage = contacts.slice(
